@@ -1,0 +1,69 @@
+{
+  "campus": {
+    "college": {"code": "CSE", "name": "计算机学院"},
+    "departments": [
+      {"code": "CS", "name": "计算机科学与技术系"},
+      {"code": "AI", "name": "人工智能系"}
+    ],
+    "majors": [
+      {"code": "SE", "name": "软件工程", "department": "CS", "graduation_credits": 160},
+      {"code": "AI", "name": "人工智能", "department": "AI", "graduation_credits": 160}
+    ]
+  },
+  "courses": [
+    {"code": "MATH101", "name": "高等数学", "department": "CS", "credits": 5.0, "type": "required"},
+    {"code": "MATH201", "name": "线性代数", "department": "CS", "credits": 3.0, "type": "required"},
+    {"code": "CS101", "name": "Python程序设计", "department": "CS", "credits": 3.0, "type": "required"},
+    {"code": "CS201", "name": "数据结构", "department": "CS", "credits": 4.0, "type": "required"},
+    {"code": "AI301", "name": "机器学习", "department": "AI", "credits": 4.0, "type": "required"},
+    {"code": "AI302", "name": "知识图谱", "department": "AI", "credits": 3.0, "type": "elective"},
+    {"code": "AI401", "name": "深度学习", "department": "AI", "credits": 4.0, "type": "elective"},
+    {"code": "AI402", "name": "大语言模型导论", "department": "AI", "credits": 3.0, "type": "elective"}
+  ],
+  "prerequisites": [
+    ["AI301", "MATH201"],
+    ["AI301", "CS101"],
+    ["AI302", "CS201"],
+    ["AI401", "AI301"],
+    ["AI401", "MATH201"],
+    ["AI402", "AI301"]
+  ],
+  "people": {
+    "student": {
+      "username": "student001",
+      "email": "student001@campusmind.local",
+      "full_name": "张同学",
+      "student_no": "20240001",
+      "major": "SE",
+      "enrollment_year": 2024,
+      "grade_level": 3,
+      "total_credits": 86.0
+    },
+    "teachers": [
+      {
+        "username": "teacher001",
+        "email": "teacher001@campusmind.local",
+        "full_name": "李明教授",
+        "employee_no": "T1001",
+        "department": "AI",
+        "title": "教授",
+        "bio": "研究方向包括知识图谱、GraphRAG、检索增强生成与大语言模型。"
+      },
+      {
+        "username": "teacher002",
+        "email": "teacher002@campusmind.local",
+        "full_name": "王蕾副教授",
+        "employee_no": "T1002",
+        "department": "AI",
+        "title": "副教授",
+        "bio": "研究方向包括机器学习、深度学习、自然语言处理。"
+      }
+    ]
+  },
+  "knowledge_bases": [
+    {"code": "academic", "name": "学业知识库", "domain": "academic"},
+    {"code": "research", "name": "科研知识库", "domain": "research"},
+    {"code": "library", "name": "图书馆知识库", "domain": "library"},
+    {"code": "campus-service", "name": "校园办事知识库", "domain": "campus_service"}
+  ]
+}

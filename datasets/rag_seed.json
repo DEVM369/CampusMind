@@ -1,0 +1,69 @@
+{
+  "documents": [
+    {
+      "knowledge_base": "campus-service",
+      "title": "2026学生事务办事指南（合成测试）",
+      "object_key": "seed/campus-service/2026-student-affairs-guide.md",
+      "document_type": "policy_guide",
+      "department": "学生事务中心",
+      "version": "2026",
+      "chunks": [
+        {
+          "index": 0,
+          "page": 8,
+          "chapter": "奖助学金",
+          "section": "国家奖学金",
+          "content": "合成测试规则：国家奖学金申请面向二年级及以上全日制本科生，申请材料需在规定时间内提交至学院审核。"
+        },
+        {
+          "index": 1,
+          "page": 15,
+          "chapter": "学籍异动",
+          "section": "转专业",
+          "content": "合成测试规则：学生申请转专业需要在学校公布的申请期内提交申请，并满足目标专业公布的课程与成绩要求。"
+        }
+      ]
+    },
+    {
+      "knowledge_base": "library",
+      "title": "2026图书馆服务指南（合成测试）",
+      "object_key": "seed/library/2026-library-service-guide.md",
+      "document_type": "library_guide",
+      "department": "图书馆",
+      "version": "2026",
+      "chunks": [
+        {
+          "index": 0,
+          "page": 3,
+          "chapter": "开放服务",
+          "section": "开放时间",
+          "content": "合成测试规则：主图书馆周一至周五开放时间为08:00至22:00，周末开放时间为09:00至21:00。"
+        },
+        {
+          "index": 1,
+          "page": 7,
+          "chapter": "借阅服务",
+          "section": "本科生借阅",
+          "content": "合成测试规则：本科生可同时借阅10册普通图书，普通图书借期为30天，可按规则续借。"
+        }
+      ]
+    },
+    {
+      "knowledge_base": "campus-service",
+      "title": "2026校园空间预约指南（合成测试）",
+      "object_key": "seed/campus-service/2026-space-reservation-guide.md",
+      "document_type": "procedure",
+      "department": "校园服务中心",
+      "version": "2026",
+      "chunks": [
+        {
+          "index": 0,
+          "page": 4,
+          "chapter": "自习空间",
+          "section": "预约流程",
+          "content": "合成测试规则：预约自习室需要选择日期、时间段和人数，系统返回满足容量条件的空闲教室后，由用户确认再提交预约。"
+        }
+      ]
+    }
+  ]
+}

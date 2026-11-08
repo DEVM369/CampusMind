@@ -1,0 +1,7 @@
+CampusMind Alembic migrations.
+
+- Script location: migrations/
+- Current head: 20260926_0011
+- Revision identifiers are immutable.
+- Migration 0001 executes the frozen baseline SQL in infra/postgres/.
+- All later schema changes must be added as new Alembic revisions.

@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+/dist/
+
+# Environments
+.venv/
+venv/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Secrets / local configuration
+.env
+.env.*
+!.env.example
+test.env
+test.env.*
+
+# Runtime-generated data
+logs/
+data/
+reports/
+
+
+# Frontend development dependencies
+frontend/node_modules/
