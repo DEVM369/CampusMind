@@ -4,6 +4,8 @@
 
 ## 本快照包含
 
+- 默认使用 DeepSeek 问答；通过环境配置提供密钥，Embedding 独立配置。
+- 聊天区适配短屏幕，消息与输入区独立布局，并提供 DeepSeek 与 UI 的 SSH 同步和失败回滚工具。
 - FastAPI 模块化单体、Vue 3 + TypeScript 前端和 Alembic 迁移。
 - Text/Hybrid/Graph/Adaptive/Agentic RAG 的离线可验证路径。
 - 学生、课程、科研、图书和教室工具。
@@ -15,7 +17,9 @@
 
 本次工作区已完成前端构建、静态架构检查、238 项离线回归、OpenAPI smoke、离线 benchmark、HITL 重放与并发验收、学生身份/RLS 验收、受控重启验收、全新镜像 smoke 和空数据库迁移到 `20260926_0011`。证据范围和限制见 [验收记录](../docs/ACCEPTANCE.md)。
 
-这些结果不等同于真实 GitHub Actions 运行记录，也不代表在线大模型质量。部署验收脚本使用隔离测试库和保留的合成数据，不能直接迁移到生产数据库。
+后续提交 `e5eeb9d` 的 [GitHub Actions](https://github.com/DEVM369/CampusMind/actions/runs/43203146245) 已通过 245 项离线测试及镜像检查。在线模型质量需要单独验收。部署验收脚本使用隔离测试库和保留的合成数据，不能直接迁移到生产数据库。
+
+DeepSeek 与 UI6 增量已通过 258 项本地离线测试，包含凭证配置、更新包隔离和失败回滚检查。真实 DeepSeek 短请求已在工作站配置下通过；Ubuntu 的更新结果以同步工具的现场检查为准。
 
 ## 发布前检查
 
@@ -25,4 +29,4 @@ python scripts/build_manifest.py
 python scripts/build_manifest.py --check
 ```
 
-发布前还需要完成公开文件复核、实际 CI 运行和远端仓库配置。当前快照按作者决定暂不添加开源许可证。
+新提交继续通过共享检查入口和 GitHub Actions 验证。当前快照按作者决定暂不添加开源许可证。

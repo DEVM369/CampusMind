@@ -34,6 +34,14 @@
 | `audit_p0_rls.py` | 只读审计数据库身份和 RLS 上下文 |
 | `check_infrastructure.ps1` | 检查本地基础服务可达性 |
 
+## 运行时更新
+
+| 脚本 | 用途 |
+| --- | --- |
+| `deploy_deepseek.py` | 通过 SSH 同步 DeepSeek 配置和前端，备份并重启现有 API 容器，检查真实模型响应，失败时回滚 |
+
+运行环境需要已安装项目 Python 依赖及 OpenSSH。凭证从本地环境或 `.env` 读取，更新包只携带 DeepSeek 的两个配置项，不携带数据库配置。具体边界见 [部署说明](../docs/DEPLOYMENT.md#update-an-existing-container-to-deepseek)。
+
 ## 部署验收
 
 这些脚本面向已明确隔离的测试环境，可能创建保留的合成数据；执行前阅读 [部署说明](../docs/DEPLOYMENT.md)。

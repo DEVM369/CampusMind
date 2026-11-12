@@ -568,17 +568,9 @@ export const ChatView = {
   <section class="page chat-page">
     <header class="page-header chat-header">
       <div>
-        <span class="eyebrow">
-          CAMPUSMIND COPILOT
-        </span>
-
         <h1>
-          \u667a\u6167\u6821\u56ed\u667a\u80fd\u534f\u540c
+          \u667a\u80fd\u95ee\u7b54
         </h1>
-
-        <p>
-          {{ modes.find(item=>item.value===chatMode)?.hint }}
-        </p>
       </div>
 
       <div class="chat-header-actions">
@@ -617,6 +609,7 @@ export const ChatView = {
           <select
             v-model="chatMode"
             :disabled="chatBusy"
+            :title="modes.find(item=>item.value===chatMode)?.hint"
           >
             <option
               v-for="item in modes"
@@ -673,34 +666,19 @@ export const ChatView = {
           </div>
 
           <div class="welcome-copy">
-            <span class="welcome-kicker">CAMPUSMIND COPILOT</span>
-
             <h2>
               \u4f60\u597d\uff0c\u6211\u662f CampusMind
             </h2>
 
-            <p v-if="actorUserId">
-              \u5f53\u524d\u5bf9\u8bdd\u5386\u53f2\u5df2\u7ed1\u5b9a\u767b\u5f55\u8d26\u53f7\uff0c
-              \u5e76\u4fdd\u5b58\u5728 PostgreSQL\u3002
+            <p>
+              \u8bfe\u7a0b\u5b66\u4e60 \u00b7 \u77e5\u8bc6\u67e5\u8be2 \u00b7 \u6821\u56ed\u4e8b\u52a1
             </p>
-
-            <p v-else>
-              \u767b\u5f55\u540e\u5f00\u59cb\u4e00\u6b21\u53ef\u8ffd\u8e2a\u3001\u53ef\u9a8c\u8bc1\u7684\u6821\u56ed\u77e5\u8bc6\u5bf9\u8bdd\u3002
-            </p>
-
-            <span
-              v-if="!actorUserId"
-              class="welcome-login-hint"
-            >
-              \u8bf7\u4f7f\u7528\u53f3\u4e0a\u89d2\u7684\u767b\u5f55\u5165\u53e3
-            </span>
           </div>
         </div>
 
         <div class="welcome-query-panel">
           <div class="welcome-query-heading">
-            <span class="welcome-kicker">QUICK START</span>
-            <strong>\u4ece\u4e00\u4e2a\u95ee\u9898\u5f00\u59cb</strong>
+            <strong>\u5e38\u7528\u95ee\u9898</strong>
           </div>
 
           <div class="suggestions">
@@ -990,19 +968,6 @@ export const ChatView = {
               {{routeBusy?'\u5206\u6790\u4e2d\u2026':'\u8def\u7531\u9884\u89c8'}}
             </button>
 
-            <span
-              v-if="!actorUserId"
-              class="muted"
-            >
-              \u672a\u767b\u5f55\uff1a\u8bf7\u5148\u767b\u5f55\u540e\u4f7f\u7528\u8d26\u53f7\u5bf9\u8bdd\u5386\u53f2
-            </span>
-
-            <span
-              v-else
-              class="muted"
-            >
-              \u5386\u53f2\u4f1a\u8bdd\u5df2\u670d\u52a1\u7aef\u6301\u4e45\u5316
-            </span>
           </div>
 
           <button

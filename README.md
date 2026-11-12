@@ -69,13 +69,15 @@ python -m alembic upgrade head
 
 ## 配置模型
 
-服务地址、数据库凭据、模型 endpoint 和 API key 只放在本地 `.env`，该文件已被 Git 忽略。模型切换开关位于 `src/campusmind/config.py`；离线验证使用确定性 Embedding：
+服务地址、数据库凭据、模型 endpoint 和 API key 只放在本地 `.env`，该文件已被 Git 忽略。默认问答模型为 DeepSeek，通过 `DEEPSEEK_API_KEY` 和 `DEEPSEEK_BASE_URL` 配置；模型切换开关位于 `src/campusmind/config.py`。Embedding 单独配置，离线验证使用确定性 Embedding：
 
 ```powershell
 $env:RAG_EMBEDDING_PROVIDER = 'deterministic'
 ```
 
 确定性模式用于测试、镜像 smoke 和离线 benchmark，不代表在线模型质量，也不会替代生产模型配置。
+
+已有 Ubuntu API 容器可使用 `scripts/deploy_deepseek.py` 同步本地已配置的 DeepSeek 凭证和已构建前端，流程包含备份、重启、真实模型检查和失败回滚。用法见 [部署说明](docs/DEPLOYMENT.md#update-an-existing-container-to-deepseek)。
 
 ## 验证与证据
 
@@ -97,7 +99,7 @@ python scripts/check_project.py --build-frontend
 | 离线功能评测 | `python scripts/run_offline_benchmark.py --output reports/offline/benchmark-v1.json` | 固定语料与确定性策略 |
 | 清单生成 | `python scripts/build_manifest.py` | 生成源码和前端文件清单 |
 
-当前验收记录包括：两账号登录、受控重启恢复、学生身份与 PostgreSQL RLS、HITL 重放和并发竞争、全新镜像 smoke、空数据库迁移到 `20260926_0011`，以及 `238` 项离线回归。完整边界和证据出处见 [验收记录](docs/ACCEPTANCE.md)。这些记录不能替代真实 CI 运行记录或在线模型质量评估。
+当前验收记录包括：两账号登录、受控重启恢复、学生身份与 PostgreSQL RLS、HITL 重放和并发竞争、全新镜像 smoke、空数据库迁移到 `20260926_0011`、离线回归，以及 [GitHub Actions 的实际通过记录](https://github.com/DEVM369/CampusMind/actions/runs/43203146245)。完整边界和证据出处见 [验收记录](docs/ACCEPTANCE.md)。离线结果不能替代在线模型质量评估。
 
 ## 安全边界
 

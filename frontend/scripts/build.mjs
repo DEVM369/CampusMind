@@ -14,12 +14,12 @@ const html = `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#2563eb" />
   <title>CampusMind 智慧校园智能平台</title>
-  <link rel="stylesheet" href="./styles.css?v=20261108-ui5" />
+  <link rel="stylesheet" href="./styles.css?v=20261112-ui6" />
 </head>
 <body>
   <div id="app"></div>
   <script src="./vendor/vue.global.prod.js"></script>
-  <script type="module" src="./src/main.js?v=20261108-ui5"></script>
+  <script type="module" src="./src/main.js?v=20261112-ui6"></script>
 </body>
 </html>`
 await writeFile(resolve(dist, 'index.html'), html, 'utf8')

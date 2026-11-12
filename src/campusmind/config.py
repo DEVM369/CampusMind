@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from functools import lru_cache
 
-from dotenv import load_dotenv
+from dotenv import dotenv_values, load_dotenv
 from langchain.chat_models import init_chat_model
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -121,8 +121,16 @@ overrides of already-exported process variables.
 
 load_dotenv(override=False)
 
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL")
+
+def _model_setting(name: str) -> str | None:
+    value = os.getenv(name)
+    if value and value.strip() not in {"", "not-configured"}:
+        return value
+    return dotenv_values(".env").get(name)
+
+
+DEEPSEEK_API_KEY = _model_setting("DEEPSEEK_API_KEY")
+DEEPSEEK_BASE_URL = _model_setting("DEEPSEEK_BASE_URL")
 DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY")
 DASHSCOPE_BASE_URL = os.getenv("DASHSCOPE_BASE_URL")
 LOCAL_BASE_URL = os.getenv("LOCAL_BASE_URL")
@@ -221,7 +229,7 @@ embedding_model = _LazyEmbeddingModel()
 #
 #     ACTIVE_LLM = "qwen"
 #
-ACTIVE_LLM = "qwen"
+ACTIVE_LLM = "deepseek"
 
 # Endpoint / credential values remain environment-specific.
 DEEPSEEK_API_KEY = DEEPSEEK_API_KEY or "not-configured"

@@ -20,14 +20,24 @@ The operator then created a new database in the isolated `15432` PostgreSQL cont
 
 ## Local evidence
 
-The shared checker passed a frontend rebuild, static validation, 187 offline tests and OpenAPI checks before the restart command was delivered. After the HITL and benchmark additions, the latest full offline run passed 238 tests; static architecture validation, frontend validation and manifest checks also passed. These tests block external network/database access and do not establish live PostgreSQL behavior.
+The shared checker passed a frontend rebuild, static validation, 187 offline tests and OpenAPI checks before the restart command was delivered. After the HITL and benchmark additions, that snapshot passed 238 tests; static architecture validation, frontend validation and manifest checks also passed. These tests block external network/database access and do not establish live PostgreSQL behavior.
 
 The student security acceptance script passed 19 focused local fixture, rollback, target-guard and HTTP checks. Its separate live PostgreSQL results are recorded above; SQLite tests are not RLS evidence. See [deployment instructions](DEPLOYMENT.md#student-identity-and-postgresql-rls-acceptance).
 
 The HITL acceptance script has focused offline coverage for resource isolation, atomic fixture rollback, HTTP authorization/rejection/replay, duplicate execution audit detection and race-orchestrator failure handling. SQLite tests adapt PostgreSQL-specific UUID reflection and locks; they do not prove PostgreSQL contention. The real script requires two observed blocked HTTP transactions before releasing each synthetic resource lock. `scripts/run_offline_benchmark.py` and `datasets/offline_benchmark_v1.json` now provide a fixed synthetic corpus with ACL negatives, stale graph provenance, graph-to-text fallback, retry, invalid-citation refusal, route expectations and A-E policy outputs. `reports/offline/benchmark-v1.json` contains raw per-case records; `recompute_metrics()` recomputes the reported metrics. This is deterministic/extractive offline functional evidence only.
 
+## GitHub and model connectivity evidence
+
+On 2026-11-12 the repository was published to `DEVM369/CampusMind`. The initial workflow exposed a runtime-checker mismatch with cache-versioned frontend URLs. Commit `e5eeb9d` repaired the checker and added regression coverage. Its [GitHub Actions run](https://github.com/DEVM369/CampusMind/actions/runs/43203146245) completed successfully with 245 offline tests, frontend and architecture validation, benchmark, OpenAPI, Docker build and isolated image HTTP smoke.
+
+The eight deployment-mode read-only runtime checks were repeated against the Ubuntu deployment and passed. A separate real model check showed that its former Qwen endpoint was unavailable. After the owner selected DeepSeek, a real short request using the workstation's existing DeepSeek configuration returned a nonempty response from `deepseek-v4-flash`. This is a workstation connectivity check, not a completed Ubuntu provider update or an answer-quality benchmark. The new deployment helper verifies the real provider again after applying the update remotely.
+
+The chat layout was checked in an isolated browser using mocked API responses at six desktop, tablet and mobile sizes. These checks covered suggestions, sending, citation expansion, new conversations, inline errors and layout bounds. They do not establish real model or database behavior.
+
+The updated local checker passed 258 offline tests, frontend validation, architecture validation, the offline benchmark and OpenAPI after the DeepSeek configuration and deployment-helper changes. The new tests cover configuration precedence, credential scoping, archive traversal protection and runtime-file restoration on model verification failure.
+
 ## Pending evidence
 
-- An actual GitHub Actions CI run. The fresh-image empty-database migration is complete.
+- Applying the current DeepSeek and UI6 source changes to the Ubuntu deployment, followed by real question-and-answer acceptance.
 - The offline benchmark is implemented and locally verified; a fresh rerun after future source edits remains required. Its deterministic/extractive results must not be described as online LLM quality.
-- Final public-file review and an actual GitHub Actions CI run. The owner chose not to add an open-source license; public display must not be described as granting reuse rights. No Git commit, push or release has been authorized.
+- The owner chose not to add an open-source license; public display must not be described as granting reuse rights. Publishing the repository and passing CI do not constitute a signed release.

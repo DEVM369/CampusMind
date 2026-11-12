@@ -27,6 +27,25 @@ python -m scripts.seed_library
 
 Open `http://127.0.0.1:8000/ui/` or `http://127.0.0.1:8000/docs`. Log in with `student001` or `admin` and the password chosen during seeding. The browser no longer accepts arbitrary user IDs as authentication.
 
+## Update an existing container to DeepSeek
+
+The default chat provider is DeepSeek. Configure `DEEPSEEK_API_KEY` and, if needed, `DEEPSEEK_BASE_URL` in the workstation's private `.env`. Embeddings have their own configuration. Nonempty environment values take precedence over `.env`; an empty or `not-configured` DeepSeek value falls back to the local file.
+
+From the workstation checkout, with the `campusmind` Python environment active:
+
+```powershell
+npm run check --prefix frontend
+python scripts/deploy_deepseek.py --ssh zs@192.168.179.51 --container campusmind-api
+```
+
+Use the actual SSH destination and container name. OpenSSH prompts for SSH authentication and remote sudo as necessary. The script verifies the existing SSH host key and does not accept passwords or API keys as command-line arguments.
+
+The update bundle contains the current model configuration module, built frontend and only `DEEPSEEK_API_KEY` / `DEEPSEEK_BASE_URL`. The bundle is sent over SCP to a private temporary directory. The remote step requires a running Linux host-network container with `/app` as its working directory. It backs up the existing configuration, frontend and optional `.env` before modifying files. Other environment settings, database services, users and sessions are preserved.
+
+Inside the existing container, the script merges the DeepSeek values into a mode-600 `/app/.env`, checks that existing container environment values do not override the requested values, restarts the API, verifies HTTP startup and the UI6 entry, and sends a short real DeepSeek request. Success prints `CM_DEEPSEEK_DEPLOYMENT_PASSED`. Application failure restores the saved runtime files and restarts the previous configuration; backup files stay in the private remote directory. Temporary credential payloads are removed after the apply attempt.
+
+This updates the existing container's writable layer. A future container replacement must provision its credentials again through the deployment's private environment or secret storage. The regular Docker build does not include `.env` or the update bundle. The real model check can use provider quota and proves connectivity rather than answer quality.
+
 ## Reset a forgotten demo password (Ubuntu)
 
 The command reads the password twice without echoing it, requires 12-256 characters (matching the login API's maximum), stores only the existing scrypt hash format, and revokes every unrevoked session for that account in the same database transaction. Unsupported terminals are rejected before visible-input fallback. Passwords are never command-line arguments, environment variables, or output.

@@ -6,7 +6,7 @@
   "runtime_requires_node": false,
   "entry": "/ui/",
   "files_count": 48,
-  "tree_sha256": "7937c2d349e3f691a546bbabc7aec40b93e02998289204a4233afec67a0929f8",
+  "tree_sha256": "8f14cd18217520d2b76bf16887bb927b3fd878f62ed954c86e3e8c562a32bf38",
   "tree_hash_algorithm": "SHA256 of UTF-8 <sha256><two spaces><posix_path><LF>, sorted by path",
   "files": [
     {
@@ -17,12 +17,12 @@
     {
       "path": "frontend/dist/404.html",
       "bytes": 485,
-      "sha256": "c492d9acde4d37cba1189db3acd966384428e9ba63c844c1ac575041d4b4384a"
+      "sha256": "4a2b00cae92aedd20e9c30cad7f72d2ea3350f37bb7ebc21c17039d3971e9cf0"
     },
     {
       "path": "frontend/dist/index.html",
       "bytes": 485,
-      "sha256": "c492d9acde4d37cba1189db3acd966384428e9ba63c844c1ac575041d4b4384a"
+      "sha256": "4a2b00cae92aedd20e9c30cad7f72d2ea3350f37bb7ebc21c17039d3971e9cf0"
     },
     {
       "path": "frontend/dist/src/api.js",
@@ -71,8 +71,8 @@
     },
     {
       "path": "frontend/dist/src/views/chat.js",
-      "bytes": 33674,
-      "sha256": "52abc5cfc4a334e426d65861d6c65f6d328d938ae2c67dd18190d7271d0970e0"
+      "bytes": 32489,
+      "sha256": "1b88b037c09314daac541ddc877544ddd249ef1bfe8eee4ce05d5e6ab0841a2d"
     },
     {
       "path": "frontend/dist/src/views/graph.js",
@@ -111,8 +111,8 @@
     },
     {
       "path": "frontend/dist/styles.css",
-      "bytes": 83306,
-      "sha256": "787c466cbd11b21a27373345efdad2a5bd13567f8098ddab5019c910d3282c9f"
+      "bytes": 84502,
+      "sha256": "a69977ee4c9d99e7e26b724ec829fd0c4bd11a4f5cfa7425de16de17404a49b5"
     },
     {
       "path": "frontend/dist/vendor/VUE-LICENSE.txt",
@@ -137,7 +137,7 @@
     {
       "path": "frontend/scripts/build.mjs",
       "bytes": 1226,
-      "sha256": "24d10addd63c89a7c813a7c7a822d76616a630d0f595c830f0da7e3a053c6d5a"
+      "sha256": "2d680ab9d4dd1ce8c082fa7c21eb1f1f095f121adb9fea7e82423a348b7f4358"
     },
     {
       "path": "frontend/scripts/validate.mjs",
@@ -156,8 +156,8 @@
     },
     {
       "path": "frontend/src/styles.css",
-      "bytes": 83306,
-      "sha256": "787c466cbd11b21a27373345efdad2a5bd13567f8098ddab5019c910d3282c9f"
+      "bytes": 84502,
+      "sha256": "a69977ee4c9d99e7e26b724ec829fd0c4bd11a4f5cfa7425de16de17404a49b5"
     },
     {
       "path": "frontend/src/types.ts",
@@ -196,8 +196,8 @@
     },
     {
       "path": "frontend/src/views/chat.ts",
-      "bytes": 33684,
-      "sha256": "6ccfc50173d898d0ba11a362b0ba5d54bb9f588e370e8c8b3563d7078be55a70"
+      "bytes": 32499,
+      "sha256": "7ef32492448e08d7d22c153467dcd48ab44d77bab53b3149c3388045a98ba665"
     },
     {
       "path": "frontend/src/views/graph.ts",
