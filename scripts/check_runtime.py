@@ -46,10 +46,14 @@ class FrontendParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         self.has_app |= tag == "div" and attrs.get("id") == "app"
+        reference = None
         if tag == "script" and attrs.get("src"):
-            self.assets.add(attrs["src"])
-        if tag == "link" and attrs.get("rel") == "stylesheet" and attrs.get("href"):
-            self.assets.add(attrs["href"])
+            reference = attrs["src"]
+        elif tag == "link" and attrs.get("rel") == "stylesheet" and attrs.get("href"):
+            reference = attrs["href"]
+        if reference:
+            parts = urlsplit(reference)
+            self.assets.add(parts._replace(query="", fragment="").geturl())
 
 
 def http_fetch(origin: str, *, timeout: float = 15):

@@ -36,6 +36,26 @@ def test_healthy_runtime_and_limited_mode():
     assert not any("/system/" in item["path"] for item in limited)
 
 
+@pytest.mark.parametrize("suffix", ["?v=20261108-ui5", "#asset", "?v=ui5#asset"])
+def test_versioned_ui_references_are_accepted(suffix):
+    data = responses()
+    status, content_type, body = data["/ui/"]
+    html = body.decode()
+    for reference in REQUIRED_ASSETS:
+        html = html.replace(reference, reference + suffix)
+    data["/ui/"] = (status, content_type, html.encode())
+    assert all(item["passed"] for item in run_checks(data.__getitem__))
+
+
+@pytest.mark.parametrize("reference", REQUIRED_ASSETS)
+def test_external_ui_references_do_not_satisfy_local_assets(reference):
+    data = responses()
+    status, content_type, body = data["/ui/"]
+    html = body.decode().replace(reference, "https://example.com/" + reference)
+    data["/ui/"] = (status, content_type, html.encode())
+    assert not all(item["passed"] for item in run_checks(data.__getitem__))
+
+
 @pytest.mark.parametrize("path,body", [
     ("/api/v1/system/readiness", {"status": "degraded", "components": {}}),
     ("/api/v1/system/health", {"status": "healthy", "components": {}}),

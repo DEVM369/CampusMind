@@ -6,7 +6,7 @@
   "alembic_head": "20260926_0011",
   "scope": "Source inventory only; does not certify deployment, security review or publication readiness.",
   "files_count": 198,
-  "tree_sha256": "f6ec48db52b3f81df4517a0f5b7ab53f1c2afcfc9a69b51c3c9f5ce1e90309ae",
+  "tree_sha256": "02f87657ebbdda6c8f3903e7d5efb1cafa39a871a893bc0d665f20b4a3a01c2d",
   "tree_hash_algorithm": "SHA256 of UTF-8 <sha256><two spaces><posix_path><LF>, sorted by path",
   "files": [
     {
@@ -491,8 +491,8 @@
     },
     {
       "path": "scripts/check_runtime.py",
-      "bytes": 5645,
-      "sha256": "957423c82722f995091dd3118452dbfa278f448ee78a54a6218a040be5971301"
+      "bytes": 5800,
+      "sha256": "6560b494d1f0c96fc5040b13403f7a8608b1e5ef0ed28f14b0473e7ad81ea9f7"
     },
     {
       "path": "scripts/diagnose_hitl_audit.py",
@@ -891,13 +891,13 @@
     },
     {
       "path": "tests/test_app.py",
-      "bytes": 1021,
-      "sha256": "e802c3353add77a3dc5e694f7a379c0302f8fdabb805580b949d6d4bd929bd47"
+      "bytes": 1383,
+      "sha256": "abe70b255d96a9c40c7fdfd6b25cb7ace49ec83b7930f9117b541ada8d650e74"
     },
     {
       "path": "tests/test_check_runtime.py",
-      "bytes": 3559,
-      "sha256": "ac93a51e11d65889f8b886d92d64aafb8d60e2c9af76927841bae5894c1fd4be"
+      "bytes": 4429,
+      "sha256": "b22bd30de810af19ca92dfb154a9952ff4313c8b31b306233cf9b3123fd6ddaf"
     },
     {
       "path": "tests/test_classroom_hitl.py",
