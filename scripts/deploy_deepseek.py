@@ -214,7 +214,7 @@ def deploy(ssh_target: str, container: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--ssh", help="existing SSH destination, e.g. zs@192.168.179.51")
+    parser.add_argument("--ssh", help="existing SSH destination, e.g. operator@ubuntu-host")
     parser.add_argument("--container", default="campusmind-api")
     parser.add_argument("--apply", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()

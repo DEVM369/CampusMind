@@ -40,7 +40,8 @@ Vue 3 / TypeScript  ----->  FastAPI /api/v1
 环境要求：Python 3.12；重新构建前端或执行完整 CI 检查时需要 Node.js 22。服务端依赖独立的 PostgreSQL、Neo4j、Redis 和 RustFS。
 
 ```powershell
-Set-Location 'E:\my_project\github\CampusMind'
+git clone https://github.com/DEVM369/CampusMind.git
+Set-Location CampusMind
 conda activate campusmind
 python -m pip install -e ".[dev]"
 if (-not (Test-Path .env)) { Copy-Item .env.example .env }

@@ -35,7 +35,7 @@ From the workstation checkout, with the `campusmind` Python environment active:
 
 ```powershell
 npm run check --prefix frontend
-python scripts/deploy_deepseek.py --ssh zs@192.168.179.51 --container campusmind-api
+python scripts/deploy_deepseek.py --ssh operator@ubuntu-host --container campusmind-api
 ```
 
 Use the actual SSH destination and container name. OpenSSH prompts for SSH authentication and remote sudo as necessary. The script verifies the existing SSH host key and does not accept passwords or API keys as command-line arguments.
